@@ -19,6 +19,7 @@ class Input(BaseModel):
 
 class Output(BaseModel):
     SalesInMillions:float
+    msg:object
 
 @app.post("/predict")
 
@@ -40,7 +41,7 @@ def predict(data:Input)->Output:
     print(prediction)
 
     #output
-    return Output(SalesInMillions=prediction)
+    return Output(SalesInMillions=prediction,msg="Model executed successfully!!!")
 
 
 '''
