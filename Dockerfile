@@ -16,4 +16,10 @@ ENV PORT = $PORT
 
 # CMD exec streamlit run webview2.py   
 
-CMD exec streamlit run webview2.py   --server.port $PORT --server.address 0.0.0.0
+# CMD exec streamlit run webview2.py   --server.port $PORT --server.address 0.0.0.0
+
+#Running both Streamlit and FastAPI -- using "&" to run the applications in background and wait to shell to respond
+
+CMD   uvicorn model_app:app --port=$PORT --host=0.0.0.0 &\
+      streamlit run webview2.py --server.port $PORT --server.address 0.0.0.0 &\
+      wait
