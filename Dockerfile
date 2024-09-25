@@ -8,4 +8,8 @@ RUN pip install --no-cache-dir -r requirments.txt
 
 # EXPOSE $PORT
 
-CMD exec uvicorn model_app:app --port=$PORT --host=0.0.0.0 
+# CMD exec uvicorn model_app:app --port=$PORT --host=0.0.0.0 
+
+# CMD ["uvicorn","bm_fastapi:app","--host","0.0.0.0","--port","$PORT"]   
+
+CMD exec streamlit run webview2.py
