@@ -12,4 +12,8 @@ RUN pip install --no-cache-dir -r requirments.txt
 
 # CMD ["uvicorn","bm_fastapi:app","--host","0.0.0.0","--port","$PORT"]   
 
-CMD exec streamlit run webview2.py
+ENV PORT = $PORT
+
+# CMD exec streamlit run webview2.py   
+
+CMD exec streamlit run webview2.py   --server.port $PORT --server.address 0.0.0.0
